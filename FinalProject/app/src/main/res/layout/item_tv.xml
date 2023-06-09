@@ -44,7 +44,7 @@
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/tv_tahun"
+                    android:id="@+id/tv_thn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tahun"

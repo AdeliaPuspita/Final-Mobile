@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIConfig {
     private static final String API_KEY = "2163b2f840387de39f84271ad3fbc5dd";
-    private static final String url_API = "https://api.themoviedb.org/3";
+    private static final String url_API = "https://api.themoviedb.org/3/";
 
 
     public static APIService getApiService() {

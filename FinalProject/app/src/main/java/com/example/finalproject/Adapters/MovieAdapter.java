@@ -26,6 +26,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         this.nowPlayings = nowPlayings;
     }
 
+
     @NonNull
     @Override
     public MovieAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,6 +36,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.ViewHolder holder, int position) {
+        Movies movie = nowPlayings.get(position);
+        holder.tvJudul.setText(movie.getTitle());
+        holder.tvTahun.setText(movie.getRelease_date());
         Glide.with(holder.itemView.getContext())
                 .load("https://image.tmdb.org/t/p/w200/" + nowPlayings.get(position).getPoster_path())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
@@ -63,4 +67,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvTahun = itemView.findViewById(R.id.tv_tahun);
         }
     }
+
 }
