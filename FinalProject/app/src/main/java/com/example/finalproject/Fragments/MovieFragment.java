@@ -62,7 +62,9 @@ public class MovieFragment extends Fragment {
 
                     movieAdapter = new MovieAdapter(response.body().getMovies());
                     rvUser.setAdapter(movieAdapter);
-                    rvUser.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+                    reload.setVisibility(View.GONE);
+                    loading.setVisibility(View.GONE);
+                    rvUser.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                     Log.d("users", response.body().toString());
                 }
             }

@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv"
-        android:layout_width="235dp"
-        android:layout_height="300dp"
-        app:cardElevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="285dp"
+        app:cardElevation="7dp"
         app:cardCornerRadius="15dp"
         android:backgroundTint="#D6E8DB"
         android:layout_margin="8dp">
@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/iv_poster"
-            android:layout_width="235dp"
+            android:layout_width="match_parent"
             android:layout_height="240dp"
             android:src="@drawable/poster"
            android:scaleType="centerCrop"/>
@@ -38,9 +38,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Movie Name"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#3C6255"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAlignment="center" />
 
         <TextView
@@ -48,9 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tahun"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="#3C6255"
             android:textAlignment="center" />
 
             </LinearLayout>
