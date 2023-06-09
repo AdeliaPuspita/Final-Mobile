@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.finalproject.Fragments.FavoriteFragment;
+import com.example.finalproject.Fragments.MovieFragment;
+import com.example.finalproject.Fragments.TvFragment;
+
 public class MainActivity extends AppCompatActivity {
     private ImageView ivMovie, ivTv, ivFav;
     private FragmentManager fragmentManager;
     TextView tvToolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment_main,fragment, fragment.getClass().getSimpleName())
                 .commit();
 
-        //komdisi utk cek fragment skrg
+        //kondisi utk cek fragment sekarang
         if (fragment instanceof MovieFragment) {
             tvToolbar.setText("Movie");
         }
