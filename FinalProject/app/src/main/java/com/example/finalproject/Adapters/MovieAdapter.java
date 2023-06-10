@@ -1,5 +1,6 @@
 package com.example.finalproject.Adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.finalproject.DataRespons.Movie;
+import com.example.finalproject.MainActivity2;
 import com.example.finalproject.Models.Movies;
 import com.example.finalproject.R;
 
@@ -44,6 +46,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
                 .into(holder.ivPoster);
         holder.tvJudul.setText(nowPlayings.get(position).getTitle());
+
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent((holder.itemView.getContext()), MainActivity2.class);
+            intent.putExtra("movie", movie);
+            holder.itemView.getContext().startActivity(intent);
+        });
 
     }
 

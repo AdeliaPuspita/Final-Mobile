@@ -13,6 +13,6 @@ public interface APIService {
     @GET("movie/now_playing?")
     Call<Movie> getMovie (@Query("api_key") String apikey);
 
-    @GET("airing_today?")
-    Call<TvShows> getTvShows (@Query("tvShows") String apikey);
+    @GET("tv/airing_today?")
+    Call<TvShows> getTvShows (@Query("api_key") String apikey);
 }

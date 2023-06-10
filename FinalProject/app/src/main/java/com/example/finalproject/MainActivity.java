@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             tvToolbar.setText("Tv Shows");
         }
         if (fragment instanceof FavoriteFragment) {
-            tvToolbar.setText("Favorie");
+            tvToolbar.setText("Favorite");
         }
 
     }

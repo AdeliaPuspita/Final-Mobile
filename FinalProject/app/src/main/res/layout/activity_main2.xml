@@ -8,7 +8,7 @@
     tools:context=".MainActivity2">
 
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/iv_backdrop"
         android:layout_width="match_parent"
         android:layout_height="235dp"
         android:src="@drawable/spider"
@@ -28,6 +28,7 @@
             android:layout_marginTop="10dp">
 
             <ImageView
+                android:id="@+id/iv_btnBack"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_gravity="center"
@@ -47,6 +48,7 @@
             android:backgroundTint="#D6E8DB">
 
             <ImageView
+                android:id="@+id/iv_favorite"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_gravity="center"
@@ -90,20 +92,22 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
                 android:text="Spider-Man : Across the Spider-VERSE"
-                android:textSize="13dp"
+                android:textSize="16dp"
                 tools:ignore="TextSizeCheck,TextSizeCheck" />
 
             <TextView
+                android:id="@+id/tv_release_Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="April 04, 2023"
-                android:textSize="13dp"
+                android:textSize="16dp"
                 tools:ignore="TextSizeCheck" />
 
             <RelativeLayout
@@ -123,11 +127,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6,1"
+                    android:textSize="16dp"
                     android:layout_marginLeft="2dp"
                     android:layout_marginTop="14dp"
                     android:layout_toRightOf="@id/iv_star"/>
 
                 <ImageView
+                    android:id="@+id/icon_movie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="136dp"
@@ -152,12 +158,13 @@
         app:cardElevation="10dp">
 
         <TextView
+            android:id="@+id/tv_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="@string/lorem"
-            android:textSize="13dp"
+            android:textSize="16dp"
             tools:ignore="TextSizeCheck" />
     </androidx.cardview.widget.CardView>
 

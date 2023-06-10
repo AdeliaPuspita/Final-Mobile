@@ -7,7 +7,7 @@
     tools:context=".Fragments.TvFragment">
 
     <LinearLayout
-        android:id="@+id/reload"
+        android:id="@+id/reloadd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -20,7 +20,7 @@
             />
 
         <ImageView
-            android:id="@+id/loading"
+            android:id="@+id/loadingg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_replay_24"/>
@@ -33,7 +33,7 @@
         android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
+        android:id="@+id/rv_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_tv"
