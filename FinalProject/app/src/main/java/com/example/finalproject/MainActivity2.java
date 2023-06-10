@@ -48,7 +48,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + movies.getPoster_path()).into(ivPoster);
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + movies.getBackdrop_path()).into(ivBackdrop);
-            Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + movies.getIcon_movie()).into(ivBackdrop);
+            Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + movies.getIcon_movie()).into(ivIcon);
             
 
         } else if (intent.getParcelableExtra("tvShows") != null ) {
@@ -60,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getPoster_path()).into(ivPoster);
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getBackdrop_path()).into(ivBackdrop);
-            Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getIcon_tv()).into(ivBackdrop);
+            Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getIcon_tv()).into(ivIcon);
             
         }
 
