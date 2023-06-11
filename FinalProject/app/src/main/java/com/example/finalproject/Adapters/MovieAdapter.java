@@ -21,7 +21,7 @@ import com.example.finalproject.R;
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
-    private final List<Movies> nowPlayings;
+    private final List<Movies>  nowPlayings;
 
 
     public MovieAdapter(List<Movies> nowPlayings) {
@@ -45,7 +45,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 .load("https://image.tmdb.org/t/p/w200/" + nowPlayings.get(position).getPoster_path())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
                 .into(holder.ivPoster);
-        holder.tvJudul.setText(nowPlayings.get(position).getTitle());
 
 
         holder.itemView.setOnClickListener(view -> {

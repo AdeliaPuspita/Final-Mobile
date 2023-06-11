@@ -43,7 +43,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.ViewHolder> {
                 .load("https://image.tmdb.org/t/p/w200/" + tvShowsList.get(position).getPoster_path())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
                 .into(holder.ivProfil);
-        holder.tvMovie.setText(tvShowsList.get(position).getName());
+
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent((holder.itemView.getContext()), MainActivity2.class);

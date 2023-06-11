@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalproject.APIConfig;
@@ -34,6 +35,7 @@ public class TvFragment extends Fragment {
     RecyclerView rvUsers;
     private LinearLayout reloadd;
     private ImageView loadingg;
+    ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,9 @@ public class TvFragment extends Fragment {
         rvUsers = view.findViewById(R.id.rv_users);
         reloadd = view.findViewById(R.id.reloadd);
         loadingg = view.findViewById(R.id.loadingg);
+        progressBar = view.findViewById(R.id.progressBar);
 
+        progressBar.setVisibility(View.VISIBLE);
         APIConfig.getApiService().getTvShows(APIConfig.getApiKey()).enqueue(new Callback<TvShows>() {
             @Override
             public void onResponse(Call<TvShows> call, Response<TvShows> response) {
@@ -67,6 +71,7 @@ public class TvFragment extends Fragment {
                     loadingg.setVisibility(View.GONE);
                     rvUsers.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                     Log.d("users", response.body().toString());
+                    progressBar.setVisibility(View.GONE);
                 }
             }
 

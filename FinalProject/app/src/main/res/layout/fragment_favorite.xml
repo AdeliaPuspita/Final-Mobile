@@ -3,28 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C1D0B5"
     tools:context=".Fragments.FavoriteFragment">
-
-
-    <LinearLayout
-        android:id="@+id/reload"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Please check your internet connection"
-            android:textSize="20dp"
-            />
-
-        <ImageView
-            android:id="@+id/loading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_replay_24"/>
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

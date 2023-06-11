@@ -16,16 +16,34 @@ import com.example.finalproject.Models.Favorite;
 import com.example.finalproject.Models.Movies;
 import com.example.finalproject.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
-    private final List<Favorite> favorites;
+    private final List<Favorite> favorites = new ArrayList<>();
 
+    public FavoriteAdapter() {}
 
-    public FavoriteAdapter(List<Favorite> favorites) {
-        this.favorites = favorites;
+    public void addItem(Favorite fav) {
+        favorites.add(fav);
+        notifyItemInserted(favorites.size() - 1);
+    }
+    public void removeItem(Favorite favorite) {
+        int position = favorites.indexOf(favorite);
+        if (position != -1) {
+            favorites.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 
+
+    public void setData(ArrayList<Favorite> notesList) {
+        favorites.clear();
+        if (notesList != null) {
+            favorites.addAll(notesList);
+        }
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public FavoriteAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,7 +62,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
                 .into(holder.ivLogo );
 
-
     }
 
     @Override
@@ -62,6 +79,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             ivLogo = itemView.findViewById(R.id.iv_Logo);
             tvNama = itemView.findViewById(R.id.tv_nama);
             tvThn = itemView.findViewById(R.id.tv_tahun);
+
         }
     }
 }

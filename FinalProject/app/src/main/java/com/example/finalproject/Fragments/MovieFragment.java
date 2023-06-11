@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.finalproject.APIConfig;
@@ -31,8 +32,10 @@ public class MovieFragment extends Fragment {
 
     MovieAdapter movieAdapter;
     RecyclerView rvUser;
+    ProgressBar progressBar;
     private LinearLayout reload;
     private ImageView loading;
+    private int page = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,9 @@ public class MovieFragment extends Fragment {
         rvUser = view.findViewById(R.id.rv_user);
         reload = view.findViewById(R.id.reload);
         loading = view.findViewById(R.id.loading);
+        progressBar = view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
 
 
         APIConfig.getApiService().getMovie(APIConfig.getApiKey()).enqueue(new Callback<Movie>() {
@@ -61,11 +67,30 @@ public class MovieFragment extends Fragment {
                 if (response.isSuccessful() && response.body() != null) {
 
                     movieAdapter = new MovieAdapter(response.body().getMovies());
+                    GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+                    rvUser.setLayoutManager(layoutManager);
                     rvUser.setAdapter(movieAdapter);
                     reload.setVisibility(View.GONE);
                     loading.setVisibility(View.GONE);
-                    rvUser.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
                     Log.d("users", response.body().toString());
+                    progressBar.setVisibility(View.GONE);
+
+                    rvUser.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                        @Override
+                        public void onScrolled(@NonNull RecyclerView recyclerView, int a, int b) {
+                            int totalItem = layoutManager.getItemCount();
+                            int visibleItem = layoutManager.getChildCount();
+                            int firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
+                            if (firstVisibleItem + visibleItem >= totalItem / 2) {
+                                page++;
+                                fetchData();
+                            }
+                        }
+
+                        private void fetchData() {
+                        }
+                    });
                 }
             }
 

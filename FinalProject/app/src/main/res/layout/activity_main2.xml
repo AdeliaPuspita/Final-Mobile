@@ -57,8 +57,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_poster"
-        android:layout_width="150dp"
-        android:layout_height="180dp"
+        android:layout_width="170dp"
+        android:layout_height="200dp"
         android:layout_marginTop="180dp"
         app:cardElevation="10dp"
         android:layout_marginLeft="15dp"
@@ -67,8 +67,8 @@
 
         <ImageView
             android:id="@+id/iv_poster"
-            android:layout_width="150dp"
-            android:layout_height="180dp"
+            android:layout_width="170dp"
+            android:layout_height="200dp"
             android:src="@drawable/poster"
             android:scaleType="centerCrop"/>
 
@@ -77,7 +77,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_rating"
         android:layout_width="230dp"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:backgroundTint="#D6E8DB"
         android:layout_toRightOf="@id/cv_poster"
         android:layout_marginTop="220dp"
@@ -96,9 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:text="Spider-Man : Across the Spider-VERSE"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 tools:ignore="TextSizeCheck,TextSizeCheck" />
 
             <TextView
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="April 04, 2023"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 tools:ignore="TextSizeCheck" />
 
             <RelativeLayout
@@ -120,16 +120,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_star_24"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"/>
+
                 <TextView
                     android:id="@+id/tv_rate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6,1"
-                    android:textSize="16dp"
+                    android:textSize="15dp"
                     android:layout_marginLeft="2dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/iv_star"/>
 
                 <ImageView
@@ -137,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="136dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
                     android:layout_toRightOf="@id/tv_rate"
                     android:src="@drawable/baseline_movie_24" />
 
@@ -149,7 +150,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_below="@id/cv_rating"
         android:layout_centerInParent="true"
         android:layout_marginTop="51dp"
