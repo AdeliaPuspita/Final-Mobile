@@ -57,6 +57,7 @@ public class FavoriteFragment extends Fragment {
         rv = view.findViewById(R.id.rv_user);
         favoriteAdapter = new FavoriteAdapter();
 
+        rv.setHasFixedSize(true);
         favoriteHelper = FavoriteHelper.getInstance(getActivity());
         favoriteHelper.open();
 
@@ -72,6 +73,7 @@ public class FavoriteFragment extends Fragment {
             }
             if (favoriteList != null) {
                 showCurrentUser(favoriteList);
+                rv.setAdapter(favoriteAdapter);
             } else {
                 showCurrentUser(new ArrayList<>());
                 Toast.makeText(getActivity(), "ehh?", Toast.LENGTH_SHORT).show();
@@ -109,15 +111,15 @@ public class FavoriteFragment extends Fragment {
         void postExecute(ArrayList<Favorite> favv);
     }
 
-    private void showCurrentUser(ArrayList<Favorite> notes) {
-        favoriteAdapter.setData(notes);
+    private void showCurrentUser(ArrayList<Favorite> favoriteList) {
+        favoriteAdapter.setData(favoriteList);
 
-        favoriteAdapter.setData(notes);
-
-        if (notes.size() > 0) {
-            rv.setVisibility(View.GONE);
-        } else {
-            rv.setVisibility(View.VISIBLE);
-        }
+//        favoriteAdapter.setData(favoriteList);
+//
+//        if (favoriteList.size() > 0) {
+//            rv.setVisibility(View.GONE);
+//        } else {
+//            rv.setVisibility(View.VISIBLE);
+//        }
     }
 }

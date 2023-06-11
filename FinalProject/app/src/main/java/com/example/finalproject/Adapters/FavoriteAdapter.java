@@ -24,17 +24,17 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     public FavoriteAdapter() {}
 
-    public void addItem(Favorite fav) {
-        favorites.add(fav);
-        notifyItemInserted(favorites.size() - 1);
-    }
-    public void removeItem(Favorite favorite) {
-        int position = favorites.indexOf(favorite);
-        if (position != -1) {
-            favorites.remove(position);
-            notifyItemRemoved(position);
-        }
-    }
+//    public void addItem(Favorite fav) {
+//        favorites.add(fav);
+//        notifyItemInserted(favorites.size() - 1);
+//    }
+//    public void removeItem(Favorite favorite) {
+//        int position = favorites.indexOf(favorite);
+//        if (position != -1) {
+//            favorites.remove(position);
+//            notifyItemRemoved(position);
+//        }
+//    }
 
 
     public void setData(ArrayList<Favorite> notesList) {
@@ -57,6 +57,11 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         Favorite favorite = favorites.get(position);
         holder.tvNama.setText(favorite.getTvNama());
         holder.tvThn.setText(favorite.getTvTahun());
+        String year = favorite.getReleasedate();
+        if (year != null && !year.isEmpty()) {
+            String years = year.substring(0, 4);
+            holder.tvThn.setText(years);
+        }
         Glide.with(holder.itemView.getContext())
                 .load("https://image.tmdb.org/t/p/w200/" + favorites.get(position).getPoster())
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))

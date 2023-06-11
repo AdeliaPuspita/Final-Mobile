@@ -25,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
      CardView cvBack , cvFav;
      FavoriteHelper favoriteHelper;
 
+     private Movies movie;
      private Favorite favorite;
         public static final String EXTRA_FAVORITE = "extra_fav";
     public static final int RESULT_ADD = 101;
@@ -83,6 +84,10 @@ public class MainActivity2 extends AppCompatActivity {
 
                     long result = FavoriteHelper.insert(values);
                     if (result > 0) {
+                        Toast.makeText(MainActivity2.this, "Berhasil ke Favorite", Toast.LENGTH_SHORT).show();
+                    } else {
+                        favoriteHelper.deleteById(movies.getTitle());
+                        Toast.makeText(MainActivity2.this, "Berhasil menghapus dari Favorite", Toast.LENGTH_SHORT).show();
                         setResult(RESULT_UPDATE, intent);
                         finish();
                         startActivity(intent);
@@ -100,7 +105,27 @@ public class MainActivity2 extends AppCompatActivity {
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getPoster_path()).into(ivPoster);
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getBackdrop_path()).into(ivBackdrop);
             Glide.with(this).load("https://image.tmdb.org/t/p/w200/" + tvShow.getIcon_tv()).into(ivIcon);
-            
+
+            cvFav.setOnClickListener(view -> {
+                Intent fav = new Intent();
+                fav.putExtra(EXTRA_FAVORITE, favorite);
+                ContentValues values = new ContentValues();
+                values.put(DatabaseContract.FavoriteColumns.POSTER, movie.getPoster_path());
+                values.put(DatabaseContract.FavoriteColumns.TITLE, movie.getTitle());
+                values.put(DatabaseContract.FavoriteColumns.RATE, movie.getVote_average());
+                values.put(DatabaseContract.FavoriteColumns._ID, movie.getId());
+                values.put(DatabaseContract.FavoriteColumns.ICON, movie.getIcon_movie());
+                values.put(DatabaseContract.FavoriteColumns.OVERVIEW, movie.getOverview());
+                values.put(DatabaseContract.FavoriteColumns.BACKDROP, movie.getBackdrop_path());
+
+                long result = favoriteHelper.insert(values);
+                if (result > 0){
+                    Toast.makeText(MainActivity2.this, "Berhasil menambahkan ke Favorite", Toast.LENGTH_SHORT).show();
+                } else {
+                    favoriteHelper.deleteById(movie.getTitle());
+                    Toast.makeText(MainActivity2.this, "Berhasil menghapus dari Favorite", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         ivBtnBack.setOnClickListener(view -> {
