@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.finalproject.Fragments.FavoriteFragment;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     TextView tvToolbar;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         ivTv = findViewById(R.id.iv_tv);
         ivFav = findViewById(R.id.iv_fav);
         tvToolbar = findViewById(R.id.tv_toolbar);
+
+        FavoriteHelper favoriteHelper = FavoriteHelper.getInstance(this);
+        favoriteHelper.open();
 
         fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentByTag(MovieFragment.class.getSimpleName());

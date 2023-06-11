@@ -9,7 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.finalproject.Models.Favorite;
+import com.example.finalproject.Models.Movies;
 import com.example.finalproject.R;
 
 import java.util.List;
@@ -31,6 +35,15 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteAdapter.ViewHolder holder, int position) {
+
+        Favorite favorite = favorites.get(position);
+        holder.tvNama.setText(favorite.getTvNama());
+        holder.tvThn.setText(favorite.getTvTahun());
+        Glide.with(holder.itemView.getContext())
+                .load("https://image.tmdb.org/t/p/w200/" + favorites.get(position).getPoster())
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(25)))
+                .into(holder.ivLogo );
+
 
     }
 

@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.FavoriteColumns.RATE
             );
 
-   DatabaseHelper(Context context) {
+   public DatabaseHelper(Context context) {
        super(context, DATABASE_NAME, null , DATABASE_VERSION);
    }
 
